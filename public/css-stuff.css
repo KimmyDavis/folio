@@ -203,3 +203,55 @@
 .box:hover > img:nth-child(2):hover {
   --p: calc(-50% - var(--g) / 2);
 }
+
+/* clock */
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--blue-darkest);
+  border-radius: 50%;
+  background: #00000033;
+}
+
+.hour-hand,
+.minute-hand,
+.second-hand {
+  position: absolute;
+  background-color: var(--blue-light);
+  transform-origin: bottom;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.hour-hand {
+  width: 6px;
+  height: 50px;
+  top: 50px;
+  left: 97px;
+}
+
+.minute-hand {
+  width: 4px;
+  height: 80px;
+  top: 20px;
+  left: 98px;
+}
+
+.second-hand {
+  width: 2px;
+  height: 90px;
+  top: 10px;
+  left: 99px;
+  background-color: var(--blue-lightest);
+}
+
+.center-circle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--blue-lightest);
+  border-radius: 50%;
+  top: 94px;
+  left: 94px;
+}

@@ -19,23 +19,23 @@ app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
+app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   Comment.find()
-    .then((comments) => {})
+    .sort({ createdAt: -1 })
+    .then((comments) => {
+      res.render("index", { comments, title: "Home" });
+    })
     .catch((err) => {
       console.log(err);
     });
-  res.render("index", { title: "Home" });
 });
-app.get("/add-comment", (req, res) => {
-  const comment = new Comment({
-    commenterName: "kim",
-    commentBody: "This is nice",
-  });
+app.post("/add-comment", (req, res) => {
+  const comment = new Comment(req.body);
   comment
     .save()
     .then((result) => {
-      res.send(result);
+      res.redirect("/#comments");
     })
-    .catch((err) => console(err));
+    .catch((err) => console.log(err));
 });

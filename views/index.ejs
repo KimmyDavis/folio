@@ -15,7 +15,25 @@
           >
         </nav>
       </header>
-      <aside>aside</aside>
+      <aside>
+        <section class="aside-stuff">
+          <h2>Keep time</h2>
+          <p>
+            This is a gift that I received from a friend #Klein_Clive. Thanks
+            bro!
+          </p>
+          <div class="clock">
+            <div class="hour-hand"></div>
+            <div class="minute-hand"></div>
+            <div class="second-hand"></div>
+            <div class="center-circle"></div>
+          </div>
+          <p>
+            Sorry this is limited to large screens But you can turn on desktop
+            mode in you mobile device to see it.
+          </p>
+        </section>
+      </aside>
       <main>
         <div class="personal">
           <p>Hey I'm Davis, a fullstack developer</p>
@@ -107,21 +125,41 @@
             >
           </p>
         </div>
-        <div class="comments">
+        <div class="comments" id="comments">
           <h2>Leave a comment</h2>
-          <p>You can let others know about what you think of my work</p>
-          <form action="/add-comment" method="get">
-            <input type="text" id="name" placeholder="Your name" />
+          <p>
+            You can let others know about what you think of my work and advise
+            on where I could have done better.
+          </p>
+
+          <div class="comments-available">
+            <% if(comments){ %> <% comments.forEach(comment => { %>
+            <div class="comment">
+              <h3><%= comment.commenterName %></h3>
+              <p><%= comment.commentBody %></p>
+            </div>
+            <% }) %> <% } %>
+          </div>
+          <form action="/add-comment" method="post">
+            <input
+              name="commenterName"
+              type="text"
+              id="name"
+              placeholder="Your name"
+              required
+            />
             <textarea
-              name="comment"
+              name="commentBody"
               id="comment"
               cols="30"
               rows="10"
               placeholder="Write your comment here"
+              required
             ></textarea>
             <input type="submit" value="Add comment" />
           </form>
         </div>
+
         <div class="contacts" id="contacts">
           <h2>Contact me</h2>
           <p>
@@ -144,7 +182,18 @@
           </div>
         </div>
       </main>
-      <footer>&copy; Davis 2024</footer>
+      <footer>
+        <p class="copyright">&copy; Davis 2024</p>
+        <div class="social">
+          <a href="Tel:+256753460522"
+            ><img src="images/dialer.png" alt="tel" /></a
+          ><a href="https://wa.me/+256753460522"
+            ><img src="images/whatsapp.png" alt="whatsapp" /></a
+          ><a href="mailto:kimdhev@gmail.com"
+            ><img src="images/gmail.png" alt="gmail"
+          /></a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
