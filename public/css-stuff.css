@@ -1,0 +1,205 @@
+.css-stuff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.css-projects {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  & .css-project {
+    display: grid;
+    place-items: center;
+  }
+}
+.album {
+  --s: 280px;
+  display: grid;
+  width: var(--s);
+  aspect-ratio: 1;
+  padding: calc(var(--s) / 20);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.album > img {
+  grid-area: 1/1;
+  width: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  aspect-ratio: 1;
+  animation: rotate 8s cubic-bezier(0.5, -0.2, 0.5, 1.2) infinite;
+  transform-origin: 50% 120.7%;
+}
+.album > img:nth-child(1) {
+  animation-delay: 0s;
+}
+.album > img:nth-child(2) {
+  animation-delay: -2s;
+}
+.album > img:nth-child(3) {
+  animation-delay: -4s;
+}
+.album > img:nth-child(4) {
+  animation-delay: -6s;
+}
+@keyframes rotate {
+  0%,
+  3% {
+    transform: rotate(0deg);
+  }
+  22%,
+  27% {
+    transform: rotate(90deg);
+  }
+  47%,
+  52% {
+    transform: rotate(180deg);
+  }
+  72%,
+  77% {
+    transform: rotate(270deg);
+  }
+  98%,
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.album::before {
+  content: "";
+  padding: inherit;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-conic-gradient(
+    var(--blue-light) 0 30deg,
+    var(--blue-mid) 0 60deg
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: exclude;
+  mask-composite: exclude;
+  animation: rotate 8s cubic-bezier(0.5, -0.2, 0.5, 1.2) infinite;
+  animation-iteration-count: infinite;
+}
+
+/* pie-reveal styles */
+.pie {
+  --g: 2px;
+  --s: 280px;
+  display: grid;
+  border: 10px solid var(--blue-mid);
+  border-radius: 50%;
+  background: var(--blue-mid);
+}
+.pie > img {
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 1;
+  transition: 0.3s, z-index 2s 0.1s;
+  border-radius: inherit;
+  z-index: 0;
+  transform: translate(var(--x, 0), var(--y, 0));
+  object-fit: cover;
+}
+.pie:hover > img {
+  transform: translate(0, 0);
+}
+.pie > img:nth-child(1) {
+  clip-path: polygon(
+    50% 50%,
+    calc(50% * var(--i, 0)) calc(120% * var(--i, 0)),
+    0% calc(100% * var(--i, 0)),
+    0% 0%,
+    100% 0%,
+    100% calc(100% * var(--i, 0)),
+    calc(100% - 50% * var(--i, 0)) calc(120% * var(--i, 0))
+  );
+  --y: calc(-1 * var(--g));
+}
+.pie > img:nth-child(2) {
+  clip-path: polygon(
+    50% 50%,
+    calc(100% - 120% * var(--i, 0)) calc(50% * var(--i, 0)),
+    calc(100% - 100% * var(--i, 0)) 0%,
+    100% 0%,
+    100% 100%,
+    calc(100% - 100% * var(--i, 0)) 100%,
+    calc(100% - 120% * var(--i, 0)) calc(100% - 50% * var(--i, 0))
+  );
+  --x: var(--g);
+}
+
+.pie > img:nth-child(3) {
+  clip-path: polygon(
+    50% 50%,
+    calc(50% * var(--i, 0)) calc(100% - 120% * var(--i, 0)),
+    0% calc(100% - 100% * var(--i, 0)),
+    0% 100%,
+    100% 100%,
+    100% calc(100% - 100% * var(--i, 0)),
+    calc(100% - 50% * var(--i, 0)) calc(100% - 120% * var(--i, 0))
+  );
+  --y: var(--g);
+}
+.pie > img:nth-child(4) {
+  clip-path: polygon(
+    50% 50%,
+    calc(120% * var(--i, 0)) calc(50% * var(--i, 0)),
+    calc(100% * var(--i, 0)) 0%,
+    0% 0%,
+    0% 100%,
+    calc(100% * var(--i, 0)) 100%,
+    calc(120% * var(--i, 0)) calc(100% - 50% * var(--i, 0))
+  );
+  --x: calc(-1 * var(--g));
+}
+.pie > img:is(:focus-visible, :hover) {
+  --i: 1;
+  z-index: 1;
+  transition: transform, clip-path 0.3s 0.3s, z-index 0.2s;
+}
+
+/* cover - uncover */
+.box {
+  --s: 280px;
+  --g: 2px;
+  --color: var(--blue-mid);
+  display: grid;
+  position: relative;
+  width: var(--s);
+  aspect-ratio: 1;
+  background: var(--color);
+  border: var(--g) solid var(--color);
+}
+.box > img {
+  --p: calc(-1 * var(--g));
+  grid-area: 1/1;
+  aspect-ratio: 1;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  transition: 2s;
+}
+.box > img:nth-child(2) {
+  clip-path: polygon(
+    100% calc(2 * var(--g) + var(--p)),
+    100% 100%,
+    calc(2 * var(--g) + var(--p)) 100%
+  );
+}
+.box:hover > img:nth-child(2),
+.box:hover > img:nth-child(1):hover {
+  --p: calc(50% + var(--g) / 2);
+}
+.box > img:nth-child(1) {
+  clip-path: polygon(0% 0%, calc(100% + var(--p)) 0%, 0 calc(100% + var(--p)));
+}
+
+.box:hover > img:nth-child(1),
+.box:hover > img:nth-child(2):hover {
+  --p: calc(-50% - var(--g) / 2);
+}

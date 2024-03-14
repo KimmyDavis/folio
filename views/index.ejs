@@ -6,19 +6,26 @@
       <header>
         <h1>Developer Davis</h1>
         <nav>
-          <a href="#" class="contact">Contact me</a>
-          <a href="#" class="contact">My projects</a>
+          <a href="#contacts" class="contact">Contact me</a>
+          <a
+            href="https://developerdavis.netlify.app"
+            target="_blank"
+            class="contact"
+            >My projects</a
+          >
         </nav>
       </header>
       <aside>aside</aside>
       <main>
         <div class="personal">
           <p>Hey I'm Davis, a fullstack developer</p>
-          <h2>My stacks</h2>
-          <ul>
-            <li>MERN</li>
-            <li>PHP-Mysql</li>
-          </ul>
+          <div class="stacks">
+            <h2>My stacks</h2>
+            <ul>
+              <li>MERN</li>
+              <li>PHP-Mysql</li>
+            </ul>
+          </div>
           <h2>Technologies</h2>
           <ol class="techs">
             <li>
@@ -50,6 +57,91 @@
               </ul>
             </li>
           </ol>
+        </div>
+        <section class="css-stuff">
+          <h2>How about a little bit of CSS?</h2>
+          <p>In here we gonna have some pics of me and the boys...</p>
+          <div class="css-projects">
+            <div class="css-project">
+              <h3>You could build a lil' gallery you know</h3>
+              <p>Where pics move én move én....</p>
+              <div class="album">
+                <img src="images/images(1).jfif" alt="one" />
+                <img src="images/images(2).jfif" alt="two" />
+                <img src="images/images(3).jfif" alt="three" />
+                <img src="images/images(4).jfif" alt="four" />
+              </div>
+            </div>
+            <div class="css-project">
+              <h3>You could make it interactive too</h3>
+              <p>Have a closer look at each pic by hovering or clicking</p>
+              <div class="pie">
+                <img src="images/images(1).jfif" alt="one" />
+                <img src="images/images(2).jfif" alt="two" />
+                <img src="images/images(3).jfif" alt="three" />
+                <img src="images/images(4).jfif" alt="four" />
+              </div>
+            </div>
+            <div class="css-project">
+              <h3>
+                You could do a sneak peek too... You know.. not the entire thing
+              </h3>
+              <p>Again hover or click what you wanna see</p>
+              <div class="box">
+                <img src="images/images(1).jfif" alt="one" />
+                <img src="images/images(3).jfif" alt="two" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="external-link">
+          <h2>External link</h2>
+          <p>
+            I'm ma miss you when you leave but you can still checkout some more
+            of my projects... Spoiler alert! JavaScript is involved.
+          </p>
+          <p>
+            Find more stuff at
+            <a href="https://developerdavis.netlify.app" target="_blank">
+              my projects</a
+            >
+          </p>
+        </div>
+        <div class="comments">
+          <h2>Leave a comment</h2>
+          <p>You can let others know about what you think of my work</p>
+          <form action="/add-comment" method="get">
+            <input type="text" id="name" placeholder="Your name" />
+            <textarea
+              name="comment"
+              id="comment"
+              cols="30"
+              rows="10"
+              placeholder="Write your comment here"
+            ></textarea>
+            <input type="submit" value="Add comment" />
+          </form>
+        </div>
+        <div class="contacts" id="contacts">
+          <h2>Contact me</h2>
+          <p>
+            If you have any questions or want to get in touch with me, feel free
+            to contact me at
+          </p>
+          <div class="handles">
+            <div class="handle">
+              <span>Tell</span>
+              <a href="Tel:+256753460522">+256 753 460522</a>
+            </div>
+            <div class="handle">
+              <span>Whatsapp</span>
+              <a href="https://wa.me/+256753460522"> +256 753 460522</a>
+            </div>
+            <div class="handle">
+              <span>Email</span>
+              <a href="mailto:kimdhev@gmail.com"> kimdhev@gmail.com</a>
+            </div>
+          </div>
         </div>
       </main>
       <footer>&copy; Davis 2024</footer>
