@@ -19,7 +19,9 @@
     "lambda": "^0.10.3",
     "mongoose": "^8.2.1",
     "netlify": "^13.1.14",
-    "netlify-cli": "^17.19.3",
     "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.19.3"
   }
 }
